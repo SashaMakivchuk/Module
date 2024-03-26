@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<main>
+<form action="/page.php" method="post">
+    <label for="loign">Login:</label>
+    <input type="text" name="login" id="login" placeholder="YourLogin" required><br>
+    <label for="email">Email:</label><br>
+    <input type="email" name="email" id="email" placeholder="youremail@gmail.com" required><br>
+    <label for="pass">Password:</label><br>
+    <input type="password" name="pass" id="pass"  placeholder="*************" required><br>
+    <label for="num">Phone number:</label><br>
+    <input type="tel" name="num" id="num" placeholder="+38 012 345 6789" required><br>
+    <label for="radio">Gender:</label>
+    <input type="radio" id="genderMale" name="Gender" value="Male" required>
+    <label for="radio">Male</label>
+    <input type="radio" id="genderFemale" name="Gender" value="Female" required>
+    <label for="radio">Female</label>
+    <input type="radio" id="genderOther" name="Gender" value="Other" required>
+    <label for="radio">Other</label><br>
+    <label for="Language"> Language:</label>
+    <select id="Language" name="Language" required>
+        <option value="Sel">Select</option>
+        <option value="Eng">English</option>
+        <option value="Ukr">Ukrainian</option>
+        <option value="Pol">Polish</option>
+      </select><br>
+      <label for="About">About:</label>
+      <textarea id ="About" name="About" rows="1" cols="1" placeholder="about yourself" required>
+      </textarea><br>
+    <input type="submit" value="Registration">
+
+</form>
+
+</main>
+
+
+</body>
+</html>

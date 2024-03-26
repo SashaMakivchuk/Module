@@ -1,0 +1,80 @@
+body {
+    font-family: Arial;
+    margin: 0;
+    background-color: rgb(238, 33, 101); 
+    background-size: cover;
+    
+}
+
+
+
+main{
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #720827;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-weight: bold;
+    color: white;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+input[type="submit"] {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+
+}
+
+input[type="submit"]:hover {
+    background-color: #777777;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+@media only screen and (max-width: 1200px){
+    main {
+      width: 90%;
+      font-size: 16px;
+    }
+  }
+  @media only screen and (max-width: 1200px){
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #720827;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+}
