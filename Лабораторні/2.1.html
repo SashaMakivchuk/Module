@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2</title>
+</head>
+<body>
+
+<div>
+    <label for="monthInput">Введіть номер місяця:</label>
+    <input type="number" id="monthInput" min="1" max="12">
+    <button onclick="getAndDisplaySeason()">Визначити пору року</button>
+    <p id="output"></p>
+</div>
+
+<script>
+function getSeason(month) {
+    if (month < 1 || month > 12) {
+        return "Невірний номер місяця";
+    }
+
+    if (month >= 3 && month <= 5) {
+        return "Весна";
+    } else if (month >= 6 && month <= 8) {
+        return "Літо";
+    } else if (month >= 9 && month <= 11) {
+        return "Осінь";
+    } else {
+        return "Зима";
+    }
+}
+
+function getAndDisplaySeason() {
+    var month = parseInt(document.getElementById("monthInput").value);
+    var season = getSeason(month);
+    document.getElementById("output").innerText = "Місяць номер " + month + " відноситься до пори року: " + season;
+}
+</script>
+
+</body>
+</html>

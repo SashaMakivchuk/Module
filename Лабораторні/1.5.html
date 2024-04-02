@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>15</title>
+</head>
+<body>
+
+<div>
+    <h2>Введіть 10 пар чисел:</h2>
+    <div id="output"></div>
+</div>
+
+<script>
+var pairs = [];
+var pairCount = 10;
+
+for (var i = 1; i <= pairCount; i++) {
+    var firstNum = prompt("Введіть перше число для " + i + "-ї пари:");
+    var secondNum = prompt("Введіть друге число для " + i + "-ї пари:");
+    
+    var largerNumber = findLargerNumber(parseInt(firstNum), parseInt(secondNum));
+    pairs.push(largerNumber);
+}
+
+function findLargerNumber(num1, num2) {
+    if (isNaN(num1) || isNaN(num2)) {
+        return "Невірний ввід";
+    }
+    return num1 > num2 ? num1 : num2;
+}
+
+var output = "<h2>Більші числа з кожної пари:</h2>";
+for (var i = 0; i < pairCount; i++) {
+    output += "<p>Пара " + (i + 1) + ": " + pairs[i] + "</p>";
+}
+
+document.getElementById("output").innerHTML = output;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4</title>
+</head>
+<body>
+
+<div>
+    <h2>Виграшний масив:</h2>
+    <p id="arrayOutput"></p>
+    <h2>Сумарний виграш:</h2>
+    <p id="totalOutput">0</p>
+    <button onclick="playGame()">Вибрати елемент</button>
+</div>
+
+<script>
+var winningsArray = Array.from({ length: 10 }, () => Math.floor(Math.random() * 1001) - 500);
+document.getElementById("arrayOutput").innerText = winningsArray.join(', ');
+
+var totalWinnings = 0;
+var selectedIndexes = [];
+
+function playGame() {
+    var selectedIndex = prompt("Виберіть номер елементу (від 1 до 10):");
+    if (selectedIndex === null || selectedIndex === "") {
+        return; 
+    }
+    selectedIndex = parseInt(selectedIndex);
+    if (isNaN(selectedIndex) || selectedIndex < 1 || selectedIndex > 10) {
+        alert("Введено невірний номер елементу.");
+        return;
+    }
+    if (selectedIndexes.includes(selectedIndex)) {
+        alert("Цей елемент вже був вибраний.");
+        return;
+    }
+
+    var selectedWinnings = winningsArray[selectedIndex - 1];
+    totalWinnings += selectedWinnings;
+    selectedIndexes.push(selectedIndex);
+
+    document.getElementById("totalOutput").innerText = totalWinnings;
+}
+</script>
+
+</body>
+</html>

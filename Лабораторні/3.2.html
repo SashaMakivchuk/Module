@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2</title>
+</head>
+<body>
+
+<div>
+    <h2>Введіть кількість відвідувачів магазину протягом тижня (через кому):</h2>
+    <input type="text" id="visitorsInput" placeholder="Кількість відвідувачів">
+    <button onclick="calculateInfo()">Обчислити</button>
+    <div id="output"></div>
+</div>
+
+<script>
+function calculateInfo() {
+    var visitorsInput = document.getElementById("visitorsInput").value;
+    var visitors = visitorsInput.split(',').map(Number);
+
+    var lessThan20 = [];
+    var minVisitors = [];
+    var maxVisitors = [];
+    var workdaysVisitors = 0;
+    var weekendVisitors = 0;
+
+    for (var i = 0; i < visitors.length; i++) {
+        if (visitors[i] < 20) {
+            lessThan20.push(i + 1);
+        }
+        if (visitors[i] === Math.min(...visitors)) {
+            minVisitors.push(i + 1);
+        }
+        if (visitors[i] === Math.max(...visitors)) {
+            maxVisitors.push(i + 1);
+        }
+        if (i < 5) {
+            workdaysVisitors += visitors[i];
+        }
+        else {
+            weekendVisitors += visitors[i];
+        }
+    }
+
+    var output = "<p>Дні з кількістю відвідувачів менше 20: " + lessThan20.join(', ') + "</p>" +
+                 "<p>Дні з мінімальною кількістю відвідувачів: " + minVisitors.join(', ') + "</p>" +
+                 "<p>Дні з максимальною кількістю відвідувачів: " + maxVisitors.join(', ') + "</p>" +
+                 "<p>Загальна кількість відвідувачів у робочі дні: " + workdaysVisitors + "</p>" +
+                 "<p>Кількість відвідувачів у вихідні дні: " + weekendVisitors + "</p>";
+
+    document.getElementById("output").innerHTML = output;
+}
+</script>
+
+</body>
+</html>

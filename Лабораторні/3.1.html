@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1</title>
+</head>
+<body>
+
+<div>
+    <h2>Введіть оцінки студента через кому:</h2>
+    <input type="text" id="gradesInput" placeholder="Оцінки">
+    <button onclick="calculateAverageAndCategory()">Обчислити</button>
+    <p id="output"></p>
+</div>
+
+<script>
+function calculateAverageAndCategory() {
+    var gradesInput = document.getElementById("gradesInput").value;
+    var grades = gradesInput.split(',').map(Number);
+
+    var sum = grades.reduce((acc, curr) => acc + curr, 0);
+    var average = sum / grades.length;
+
+    var category;
+    if (grades.every(grade => grade === 5)) {
+        category = "Відмінник";
+    } else if (grades.includes(2)) {
+        category = "Двійочник";
+    } else if (grades.every(grade => grade >= 4)) {
+        category = "Хорошист";
+    } else if (grades.includes(3)) {
+        category = "Трійочник";
+    } else {
+        category = "Студент з різними оцінками";
+    }
+
+    var output = "Середній бал: " + average.toFixed(2) + "<br>Категорія: " + category;
+    document.getElementById("output").innerHTML = output;
+}
+</script>
+
+</body>
+</html>

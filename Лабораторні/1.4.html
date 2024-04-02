@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>13</title>
+</head>
+<body>
+
+<div>
+    <label for="numberInput">Введіть натуральне число N:</label>
+    <input type="number" id="numberInput" min="1" step="1">
+    <button onclick="checkPowerOfThree()">Перевірити</button>
+    <p id="result"></p>
+</div>
+
+<script>
+function checkPowerOfThree() {
+    var n = parseInt(document.getElementById('numberInput').value);
+    if (isNaN(n) || n < 1) {
+        document.getElementById('result').innerText = "Будь ласка, введіть коректне натуральне число.";
+        return;
+    }
+
+    var result = isPowerOfThree(n);
+    if (result) {
+        document.getElementById('result').innerText = n + " є ступенем числа 3.";
+    } else {
+        document.getElementById('result').innerText = n + " не є ступенем числа 3.";
+    }
+}
+
+function isPowerOfThree(n) {
+    while (n > 1) {
+        if (n % 3 !== 0) {
+            return false;
+        }
+        n /= 3;
+    }
+    return n === 1;
+}
+</script>
+
+</body>
+</html>

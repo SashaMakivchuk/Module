@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2</title>
+</head>
+<body>
+
+<form id="numberForm">
+    <label for="numberInput">Введіть число:</label>
+    <input type="text" id="numberInput" name="numberInput">
+    <button type="submit">Обчислити</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+document.getElementById('numberForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    var number = document.getElementById('numberInput').value;
+    var sum = calculateSumBetweenFirstAndLastDigits(number);
+    document.getElementById('result').innerText = "Сума цифр числа між першою та останньою: " + sum;
+});
+
+function calculateSumBetweenFirstAndLastDigits(number) {
+    var digits = number.toString().split('').map(Number);
+    var firstDigit = digits[0];
+    var lastDigit = digits[digits.length - 1];
+    var sum = 0;
+    for (var i = 1; i < digits.length - 1; i++) {
+        sum += digits[i];
+    }
+    return sum;
+}
+</script>
+
+</body>
+</html>

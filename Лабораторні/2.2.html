@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5</title>
+</head>
+<body>
+
+<div>
+    <label for="monthInput">Введіть номер місяця:</label>
+    <input type="number" id="monthInput" min="1" max="12">
+    <button onclick="getAndDisplayMonthName()">Визначити назву місяця</button>
+    <p id="output"></p>
+</div>
+
+<script>
+function getMonthName(month) {
+    var monthNames = ["Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень",
+                      "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень"];
+    if (month < 1 || month > 12) {
+        return "Невірний номер місяця";
+    } else {
+        return monthNames[month - 1];
+    }
+}
+
+function getAndDisplayMonthName() {
+    var month = parseInt(document.getElementById("monthInput").value);
+    var monthName = getMonthName(month);
+    document.getElementById("output").innerText = "Місяць номер " + month + " - це " + monthName;
+}
+</script>
+
+</body>
+</html>

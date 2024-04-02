@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3</title>
+</head>
+<body>
+
+<div>
+    <label for="nameInput">Введіть ім'я для пошуку:</label>
+    <input type="text" id="nameInput">
+    <button onclick="countOccurrences()">Пошук</button>
+    <p id="output"></p>
+</div>
+
+<script>
+function countOccurrences() {
+    var nameInput = document.getElementById("nameInput").value;
+    var students = ["Юрій", "Анна", "Юрій", "Марія", "Іван", "Юрій", "Олександр", "Ірина", "Юрій"];
+
+    var count = 0;
+    for (var i = 0; i < students.length; i++) {
+        if (students[i] === nameInput) {
+            count++;
+        }
+    }
+
+    var output = "Ім'я '" + nameInput + "' зустрічається " + count + " раз(ів).";
+    document.getElementById("output").innerText = output;
+}
+</script>
+
+</body>
+</html>
