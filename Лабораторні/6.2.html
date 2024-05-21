@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1</title>
+</head>
+<body>
+<script>
+    let Counter = 0;
+    class Account{
+        constructor(code,firstName,lastName,position, salary, numberOfChildren,experiance){
+            this.code = code;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.position = position;
+            this.salary = salary;
+            this. numberOfChildren = numberOfChildren;
+            this.experiance = experiance;
+            this._id = Counter++;
+        }
+        get id(){
+            return this._id;
+        }
+        
+        
+    }
+    class Accounting{
+        constructor(){
+            this.acc =[];
+        }
+        get count(){
+            return this.acc.length;
+        }
+        add(account){
+            if(!(account instanceof Account))
+            throw 'no account like that';
+            if(!(this.acc.some(el => el.id == account.id)))
+                this.acc.push(account);
+        
+        }
+        getById(id){
+            return this.acc.find( account => account.id == id);
+        }
+        getByPositionAndChildren(position, numberOfChildren){
+            return this.acc.filter(account=> account.position == position && account.numberOfChildren< 4)
+            
+        }
+        getAll(){
+            return[...this.acc];
+        }
+        
+        update(id, newAcc){
+            let accUser = this.getById(id);
+            if(!accUser)
+            throw "Not found";
+            for(let key of ["code","firstName","lastName","position","salary","numberOfChildren","experiance"])
+                if(newAcc[key])
+                    accUser[key] = newAcc[key];
+        }
+        remove(id){
+            let accID = this.acc.findIndex(account=>account.id==id);
+            if(accID == -1)
+                throw "NotFound";
+            this.acc.splice(accID,1);
+        }
+    }
+
+    let acc = new Accounting();
+    let acc2 = new Account("1","John","Doe", "Accounter2", "2000", "4","6" );
+    let acc3 = new Account("3","John","Doe", "Accounter1", "2000", "2","6" );
+    let acc6 = new Account("1","John","Doe", "Accounter1", "2000", "2","6" );
+    let acc1 = new Account("2","John","Doe", "Accounter", "2000", "3","6" );
+    let acc7 = new Account("1","John","Doe", "Accounter12", "2000", "3","6" );
+    acc.add(acc3);
+    acc.add(acc1);
+    acc.add(acc2);
+    acc.add(acc6);
+    acc.add(acc7); 
+    let acc4 = acc.getById(0);
+        acc.update(0,{
+            code: "1",
+            firstName: "fff",
+            lastName:"ffff",
+            position: "accounter112",
+            salary:"1000",
+            numberOfChildren:"2",
+            experiance:"21"
+
+        });
+    
+    let acc5 = acc.getById(0).id;
+    acc.remove(acc5);
+    console.log(acc5);
+    console.log(acc);
+    console.log(acc4);
+    let user = acc.getById(1);
+    let userTwo = acc.getByPositionAndChildren("Accounter","3");
+    let userThree = acc.getByPositionAndChildren("Accounter2","4");
+    let userFour = acc.getAll();
+    console.log(user);
+    console.log(userThree);
+    console.log(userTwo);
+    console.log(userFour);
+</script>
+
+</body>
+
+
+</html>

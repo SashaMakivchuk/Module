@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // Завдання 2:
+        function getSeason(month) {
+            if (typeof month === 'string') {
+                month = month.toLowerCase();
+                switch (month) {
+                    case 'january':
+                    case 'february':
+                    case 'december':
+                        return 'winter';
+                    case 'march':
+                    case 'april':
+                    case 'may':
+                        return 'spring';
+                    case 'june':
+                    case 'july':
+                    case 'august':
+                        return 'summer';
+                    case 'september':
+                    case 'october':
+                    case 'november':
+                        return 'autumn';
+                    default:
+                        return 'Invalid month';
+                }
+            } else if (typeof month === 'number' && month >= 1 && month <= 12) {
+                switch (month) {
+                    case 1:
+                    case 2:
+                        return 'winter';
+                    case 3:
+                    case 4:
+                    case 5:
+                        return 'spring';
+                    case 6:
+                    case 7:
+                    case 8:
+                        return 'summer';
+                    case 9:
+                    case 10:
+                    case 11:
+                        return 'autumn';
+                    case 12:
+                        return 'winter';
+                    default:
+                        return 'Invalid month';
+                }
+            } else {
+                return 'Invalid month format';
+            }
+        }
+
+        // Завдання 3:
+        function splitArray(array) {
+            const positive = [];
+            const negative = [];
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] >= 0) {
+                    positive.push(array[i]);
+                } else {
+                    negative.push(array[i]);
+                }
+            }
+            return { positive, negative };
+        }
+
+        
+        function processInput() {
+            const monthInput = document.getElementById('month').value;
+            const monthSeason = getSeason(monthInput);
+            document.getElementById('seasonResult').innerText = `The month ${monthInput} belongs to the season: ${monthSeason}`;
+
+            const arrayInput = document.getElementById('array').value.split(',').map(Number);
+            const { positive, negative } = splitArray(arrayInput);
+            document.getElementById('arrayResult').innerText = `Positive elements of the array: ${positive}\nNegative elements of the array: ${negative}`;
+        }
+    </script>
+</head>
+<body>
+    <h2>Enter the month's name or number:</h2>
+    <input type="text" id="month" placeholder="Month's name or number">
+    <button onclick="processInput()">Get Season</button>
+    <div id="seasonResult"></div>
+
+    <h2>The array of numbers (,):</h2>
+    <input type="text" id="array" placeholder="Array of numbers">
+    <button onclick="processInput()">Split</button>
+    <div id="arrayResult"></div>
+</body>
+</html>

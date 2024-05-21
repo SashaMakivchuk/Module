@@ -24,15 +24,17 @@ function calculateInfo() {
     var maxVisitors = [];
     var workdaysVisitors = 0;
     var weekendVisitors = 0;
+    var minVisitors = Math.min(...visitors);
+    var maxVisitors = Math.max(...visitors);
 
     for (var i = 0; i < visitors.length; i++) {
         if (visitors[i] < 20) {
             lessThan20.push(i + 1);
         }
-        if (visitors[i] === Math.min(...visitors)) {
+        if (visitors[i] === minVisitors) {
             minVisitors.push(i + 1);
         }
-        if (visitors[i] === Math.max(...visitors)) {
+        if (visitors[i] === maxVisitors) {
             maxVisitors.push(i + 1);
         }
         if (i < 5) {

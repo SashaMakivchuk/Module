@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4</title>   
+</head>
+<body>
+    <form id="Form" method="post">
+        <label for="cost">Cost</label>
+        <input type="number" name="cost" id="cost" required></input><br>
+        <label for="weight">Weight</label>
+        <input type="number" name="weight" id="weight" required></input><br>
+        <label for="insurance">Insurence(2% of the cost)</label>
+        <input type="checkbox" name="insurance" id="insurance"></input><br>
+        <button type="button" onclick="deliveryCost()">deliver</button>
+        <p id="result"></p>
+    </form>
+    <script>
+        function deliveryCost(){
+            const cost = parseFloat(document.getElementById('cost').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+            const insurence = document.getElementById('insurance').checked;
+
+            let costOfDelivery = 0
+            if(weight<=2){
+                costOfDelivery =40;
+            }
+            else if(weight>2 && weight<=10){
+                costOfDelivery = 60
+            }
+            else if(weight>10 && weight<=30){
+                costOfDelivery = 80
+            }
+            else{
+               alert("don't deliver packages with weight more then 30");     
+            }
+            if(insurence){
+               const insuranceCost = 0.02*cost;
+               costOfDelivery += insuranceCost;
+            }
+            const costDel = costOfDelivery+cost;
+            const resultEl = document.getElementById("result");
+            resultEl.textContent = "Delivery cost = "+costDel;
+
+
+        }
+
+    </script>
+</body>
+
+</html>

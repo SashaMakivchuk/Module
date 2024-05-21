@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1</title>
+</head>
+<body>
+    <script>
+        function Accounting(code,firstName,lastName,position, salary, numberOfChildren,experiance){
+            this.code = code;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.position = position;
+            this.salary = salary;
+            this. numberOfChildren = numberOfChildren;
+            this.experiance = experiance;
+            
+        }
+        Accounting.prototype.getInfo = function(){
+            return this.code+ ". "+ this.firstName + " " + this.lastName + ", "+ this.position + ", " + this.salary + "$, "+ this.numberOfChildren + ", " +this.experiance;
+        }
+        let acc1 = new Accounting("1","John","Doe", "Accounter", "2000", "3","6");
+        console.log(acc1.getInfo());
+
+        function Company(code, name, numberOfEmployees, industry, address) {
+            this.code = code;
+            this.companyName = name;
+            this.numberOfEmployees = numberOfEmployees;
+            this.industry = industry;
+            this.address = address;
+        }
+
+        Company.prototype.getInfo = function() {
+            return this.code + ". " + this.companyName + ", " + this.numberOfEmployees + " employees, " + this.industry + ", " + this.address;
+        }
+
+        let company1 = new Company("1", " Company", 100, "Technology", "123, City, Country");
+        console.log(company1.getInfo());
+
+        function Subscriber(phoneNumber, homeAddress, owner, totalDuration, bill) {
+            this.phoneNumber = phoneNumber;
+            this.homeAddress = homeAddress;
+            this.owner = owner;
+            this.totalDuration = totalDuration;
+            this.bill = bill;
+        }
+
+        Subscriber.prototype.getInfo = function() {
+            return "Phone Number: " + this.phoneNumber + ", Address: " + this.homeAddress + ", Owner: " + this.owner + ", Total Duration: " + this.totalDuration + " minutes, Bill: $" + this.bill;
+        }   
+
+        let subscriber1 = new Subscriber("123-456-7890", "123 , City, Country", "John Doe", 120, 50);
+        console.log(subscriber1.getInfo());
+
+
+    </script>
+
+
+</body>
+
+
+
+
+
+
+
+</html>
